@@ -1,0 +1,10 @@
+/.bundle/
+/.yardoc
+/lib/.rubocop.yml
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/

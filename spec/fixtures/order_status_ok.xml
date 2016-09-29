@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<!DOCTYPE result [
+<!ATTLIST result
+ firstcode CDATA #REQUIRED
+ secondcode CDATA #REQUIRED
+ count CDATA #REQUIRED>
+<!ELEMENT result (order*)>
+<!ELEMENT order (ordernumber?,billnumber?,orderamount?,ordercurrency?,orderstate?,packetdate?,checkvalue?)>
+<!ELEMENT ordernumber (#PCDATA)>
+<!ELEMENT billnumber (#PCDATA)>
+<!ELEMENT orderamount (#PCDATA)>
+<!ELEMENT ordercurrency (#PCDATA)>
+<!ELEMENT orderstate (#PCDATA)>
+<!ELEMENT packetdate (#PCDATA)>
+<!ELEMENT checkvalue (#PCDATA)>]>
+<result firstcode='0' secondcode='0' count='1'>
+  <order>
+    <ordernumber>100</ordernumber>
+    <billnumber>5775486650107611</billnumber>
+    <orderamount>4.00</orderamount>
+    <ordercurrency>RUB</ordercurrency>
+    <orderstate>Canceled</orderstate>
+    <packetdate>27.09.2016 23:24</packetdate>
+    <signature></signature>
+    <checkvalue>74DEB154081757F1E8097DDFAC35FC5C</checkvalue>
+  </order>
+</result>

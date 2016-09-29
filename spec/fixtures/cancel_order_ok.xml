@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<!DOCTYPE result [
+<!ATTLIST result
+  firstcode CDATA #REQUIRED
+  secondcode CDATA #REQUIRED
+  count CDATA #REQUIRED>
+<!ELEMENT result (orders?)>
+<!ELEMENT orders (order)>
+<!ELEMENT order (ordernumber?, responsecode?, recommendation?, message?,
+  ordercomment?, orderdate?, amount?, currency?, meantypename?, meannumber?, lastname?,
+  firstname?, middlename?, issuebank?, email?, bankcountry?, rate?, approvalcode?,
+  meansubtype?, cardholder?, cardexpirationdate?, ipaddress?, protocoltypename?, testmode?,
+  customermessage?, orderstate?, processingname?, operationtype?, billnumber?, orderamount?,
+  ordercurrency?, slipno?, packetdate?, signature?, pareq?, acsurl?)>
+<!ELEMENT ordernumber (#PCDATA)>
+<!ELEMENT responsecode (#PCDATA)>
+<!ELEMENT recommendation (#PCDATA)>
+<!ELEMENT message (#PCDATA)>
+<!ELEMENT ordercomment (#PCDATA)>
+<!ELEMENT orderdate (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+<!ELEMENT currency (#PCDATA)>
+<!ELEMENT meantypename (#PCDATA)>
+<!ELEMENT meannumber (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT middlename (#PCDATA)>
+<!ELEMENT issuebank (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT bankcountry (#PCDATA)>
+<!ELEMENT rate (#PCDATA)>
+<!ELEMENT approvalcode (#PCDATA)>
+<!ELEMENT meansubtype (#PCDATA)>
+<!ELEMENT cardholder (#PCDATA)>
+<!ELEMENT cardexpirationdate (#PCDATA)>
+<!ELEMENT ipaddress (#PCDATA)>
+<!ELEMENT protocoltypename (#PCDATA)>
+<!ELEMENT testmode (#PCDATA)>
+<!ELEMENT customermessage (#PCDATA)>
+<!ELEMENT orderstate (#PCDATA)>
+<!ELEMENT processingname (#PCDATA)>
+<!ELEMENT operationtype (#PCDATA)>
+<!ELEMENT billnumber (#PCDATA)>
+<!ELEMENT orderamount (#PCDATA)>
+<!ELEMENT ordercurrency (#PCDATA)>
+<!ELEMENT packetdate (#PCDATA)>
+<!ELEMENT signature (#PCDATA)>
+<!ELEMENT pareq (#PCDATA)>
+<!ELEMENT acsurl (#PCDATA)>
+]>
+<result firstcode="0" secondcode="0" count="1">
+  <orders>
+    <order>
+      <ordernumber>100</ordernumber>
+      <responsecode>AS000</responsecode>
+      <recommendation></recommendation>
+      <message>\xD0\x97\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD1\x88\xD0\xB5\xD0\xBD\xD0\xBE \xD1\x83\xD1\x81\xD0\xBF\xD0\xB5\xD1\x88\xD0\xBD\xD0\xBE</message>
+      <ordercomment></ordercomment>
+      <orderdate>25.09.2016 00:34:41</orderdate>
+      <amount>4.00</amount>
+      <currency>RUB</currency>
+      <meantypename>VISA</meantypename>
+      <meannumber>411111****1111</meannumber>
+      <lastname>Chumakov</lastname>
+      <firstname>Anton</firstname>
+      <middlename></middlename>
+      <issuebank>JPMORGAN CHASE BANK, N.A.</issuebank>
+      <email>t@t.t</email>
+      <bankcountry>\xD0\xA1\xD0\xA8\xD0\x90</bankcountry>
+      <rate>1</rate>
+      <approvalcode>F02118</approvalcode>
+      <meansubtype>Classic</meansubtype>
+      <cardholder>TEST</cardholder>
+      <cardexpirationdate>12/20</cardexpirationdate>
+      <ipaddress>1.1.1.1</ipaddress>
+      <protocoltypename></protocoltypename>
+      <testmode>1</testmode>
+      <customermessage>\xD0\x97\xD0\xB0\xD0\xB2\xD0\xB5\xD1\x80\xD1\x88\xD0\xB5\xD0\xBD\xD0\xBE \xD1\x83\xD1\x81\xD0\xBF\xD0\xB5\xD1\x88\xD0\xBD\xD0\xBE</customermessage>
+      <orderstate>Canceled</orderstate>
+      <processingname>Fake</processingname>
+      <operationtype>300</operationtype>
+      <billnumber>5775486650107611</billnumber>
+      <orderamount>4.00</orderamount>
+      <ordercurrency>RUB</ordercurrency>
+      <packetdate>26.09.2016 23:08:37</packetdate>
+      <signature>kA0DAAIRzfHw5YyCWOEBy2ViCF9DT05TT0xFV+mqdTU3NzU0ODY2NTAxMDc2MTEuMiwyNCxBUzAwMCw0LjAwLFJVQiw0MTExMTEqKioqMTExMSxGMDIxMTgsQ2FuY2VsZWQsMjYuMDkuMjAxNiAyMzowODozN4hGBAARAgAGBQJX6ap1AAoJEM3x8OWMgljhdhcAn0KnzwHZcepj/JMCntystJjvuDG+AJ0QKSSbfr5awWNEn0tnfthJVtTCew==</signature>
+    </order>
+  </orders>
+</result>

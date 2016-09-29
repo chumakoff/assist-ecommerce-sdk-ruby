@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<!DOCTYPE result [
+<!ATTLIST result
+ firstcode CDATA #REQUIRED
+ secondcode CDATA #REQUIRED
+ count CDATA #REQUIRED>
+<!ELEMENT result (order*)>
+<!ELEMENT order (ordernumber?,billnumber?,orderamount?,ordercurrency?,orderstate?,packetdate?,checkvalue?)>
+<!ELEMENT ordernumber (#PCDATA)>
+<!ELEMENT billnumber (#PCDATA)>
+<!ELEMENT orderamount (#PCDATA)>
+<!ELEMENT ordercurrency (#PCDATA)>
+<!ELEMENT orderstate (#PCDATA)>
+<!ELEMENT packetdate (#PCDATA)>
+<!ELEMENT checkvalue (#PCDATA)>]>
+<result firstcode='10' secondcode='100' count='0'> </result>

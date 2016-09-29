@@ -92,9 +92,9 @@ See "List of the authorized request parameters" in the documentation [[EN](http:
 ```ruby
 # `order_number` - order number in the merchant payment system
 order_number = 999
-order_status = Assist.order_status(order_number, extra_params)
+order_status = Assist.order_status(order_number)
 
-# with extra parameters
+# with additional parameters
 extra_params = {}
 order_status = Assist.order_status(order_number, extra_params)
 
@@ -120,7 +120,7 @@ See "Receiving status by order number" and "OrderState field values" in the docu
 billnumber = "5775486652369300"
 result = Assist.cancel_order(billnumber)
 
-# with extra parameters
+# with additional parameters
 extra_params = {}
 result = Assist.cancel_order(billnumber, extra_params)
 

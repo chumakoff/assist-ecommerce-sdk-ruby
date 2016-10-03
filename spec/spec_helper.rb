@@ -23,3 +23,50 @@ end
 def clear_config
   Assist.instance_variable_set("@config", nil)
 end
+
+def stub_order_status_requests
+  stub_request(:post, /.*orderstate\/orderstate.cfm/)
+    .with(body: hash_including(ordernumber: "ok"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "order_status_ok.xml"))
+      )
+
+  stub_request(:post, /.*orderstate\/orderstate.cfm/)
+    .with(body: hash_including(ordernumber: "error"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "order_status_error.xml"))
+      )
+
+  stub_request(:post, /.*orderstate\/orderstate.cfm/)
+    .with(body: hash_including(ordernumber: "bad"))
+      .to_return(status: 500, body: nil)
+
+  stub_request(:post, /.*orderstate\/orderstate.cfm/)
+    .with(body: hash_including(ordernumber: "wrong_checkvalue"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "order_status_wrong_checkvalue.xml"))
+      )
+end
+
+def stub_cancel_order_requests
+  stub_request(:post, /.*cancel\/cancel.cfm/)
+    .with(body: hash_including(billnumber: "ok"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "cancel_order_ok.xml"))
+      )
+
+  stub_request(:post, /.*cancel\/cancel.cfm/)
+    .with(body: hash_including(billnumber: "error"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "cancel_order_error.xml"))
+      )
+
+  stub_request(:post, /.*cancel\/cancel.cfm/)
+    .with(body: hash_including(billnumber: "bad"))
+      .to_return(status: 500, body: nil)
+end

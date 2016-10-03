@@ -101,7 +101,11 @@ order_status = Assist.order_status(order_number, extra_params)
 order_status.status     # => "Approved"
 order_status.billnumber # => "5775486652369300"
 
-# all response parameters
+# parameters sent in the HTTP request
+order_status.request_params # => {merchant_id: '111111', login: 'login',
+                            #     password: 'password', ...}
+
+# response parameters
 order_status.result # => [{:ordernumber=>"999", :billnumber=>"5775486652369300",
                     #      :orderamount=>"111.00", :ordercurrency=>"RUB",
                     #      :orderstate=>"Approved", :packetdate=>"28.09.2016 23:32",
@@ -123,6 +127,10 @@ result = Assist.cancel_order(billnumber)
 # with additional parameters
 extra_params = {}
 result = Assist.cancel_order(billnumber, extra_params)
+
+# parameters sent in the HTTP request
+result.request_params # => {merchant_id: '111111', login: 'login',
+                      #     password: 'password', ...}
 
 # response
 result.result # => {:ordernumber=>"999", :responsecode=>"AS000",

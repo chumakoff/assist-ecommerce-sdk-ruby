@@ -20,6 +20,10 @@ module Assist
         @result ||= parse_result
       end
 
+      def request_params
+        params
+      end
+
       def original_response
         response
       end

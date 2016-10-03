@@ -5,6 +5,55 @@ describe Assist do
     expect(Assist::VERSION).not_to be nil
   end
 
+  describe "api methods" do
+    before { set_config }
+    after { clear_config }
+
+    describe ".payment_url" do
+      subject { Assist.payment_url(123, 100) }
+
+      it "shoud return payment url" do
+        expect(subject).to eq Assist::PaymentInterface.new(123, 100).url
+      end
+    end
+
+    describe ".order_status" do
+      subject { Assist.order_status(123) }
+
+      it "shoud return OrderStatus instance" do
+        expect(subject).to be_a Assist::WebServices::OrderStatus
+      end
+
+      it "shoud contain passed parameter" do
+        expect(subject.request_params[:ordernumber].to_s).to eq "123"
+      end
+    end
+
+    describe ".cancel_order" do
+      subject { Assist.cancel_order("1234567890") }
+
+      it "shoud return CancelOrder instance" do
+        expect(subject).to be_a Assist::WebServices::CancelOrder
+      end
+
+      it "shoud contain passed parameter" do
+        expect(subject.request_params[:billnumber].to_s).to eq "1234567890"
+      end
+    end
+
+    describe ".confirm_order" do
+      subject { Assist.confirm_order("1234567890") }
+
+      it "shoud return CancelOrder instance" do
+        expect(subject).to be_a Assist::WebServices::ConfirmOrder
+      end
+
+      it "shoud contain passed parameter" do
+        expect(subject.request_params[:billnumber].to_s).to eq "1234567890"
+      end
+    end
+  end
+
   describe ".setup" do
     after(:each) { clear_config }
 

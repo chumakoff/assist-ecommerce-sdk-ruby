@@ -70,3 +70,23 @@ def stub_cancel_order_requests
     .with(body: hash_including(billnumber: "bad"))
       .to_return(status: 500, body: nil)
 end
+
+def stub_confirm_order_requests
+  stub_request(:post, /.*charge\/charge.cfm/)
+    .with(body: hash_including(billnumber: "ok"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "confirm_order_ok.xml"))
+      )
+
+  stub_request(:post, /.*charge\/charge.cfm/)
+    .with(body: hash_including(billnumber: "error"))
+      .to_return(
+        status: 200,
+        body: File.read(File.join("spec", "fixtures", "confirm_order_error.xml"))
+      )
+
+  stub_request(:post, /.*charge\/charge.cfm/)
+    .with(body: hash_including(billnumber: "bad"))
+      .to_return(status: 500, body: nil)
+end

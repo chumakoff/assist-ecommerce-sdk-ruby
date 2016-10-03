@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<!DOCTYPE result [
+<!ATTLIST result
+ firstcode CDATA #REQUIRED
+ secondcode CDATA #REQUIRED
+ count CDATA #REQUIRED>
+<!ELEMENT result (orders?)>
+<!ELEMENT orders (order)>
+<!ELEMENT order (ordernumber?, responsecode?, recommendation?, message?,
+ordercomment?, orderdate?, amount?, currency?, meantypename?, meannumber?, lastname?,
+firstname?, middlename?, issuebank?, email?, bankcountry?, rate?, approvalcode?,
+meansubtype?, cardholder?, cardexpirationdate?, ipaddress?, protocoltypename?, testmode?,
+customermessage?, orderstate?, processingname?, operationtype?, billnumber?, orderamount?,
+ordercurrency?, slipno?, packetdate?, signature?, pareq?, acsurl?)>
+<!ELEMENT ordernumber (#PCDATA)>
+<!ELEMENT responsecode (#PCDATA)>
+<!ELEMENT recommendation (#PCDATA)>
+<!ELEMENT message (#PCDATA)>
+<!ELEMENT ordercomment (#PCDATA)>
+<!ELEMENT orderdate (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+<!ELEMENT currency (#PCDATA)>
+<!ELEMENT meantypename (#PCDATA)>
+<!ELEMENT meannumber (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT middlename (#PCDATA)>
+<!ELEMENT issuebank (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT bankcountry (#PCDATA)>
+<!ELEMENT rate (#PCDATA)>
+<!ELEMENT approvalcode (#PCDATA)>
+<!ELEMENT meansubtype (#PCDATA)>
+<!ELEMENT cardholder (#PCDATA)>
+<!ELEMENT cardexpirationdate (#PCDATA)>
+<!ELEMENT ipaddress (#PCDATA)>
+<!ELEMENT protocoltypename (#PCDATA)>
+<!ELEMENT testmode (#PCDATA)>
+<!ELEMENT customermessage (#PCDATA)>
+<!ELEMENT orderstate (#PCDATA)>
+<!ELEMENT processingname (#PCDATA)>
+<!ELEMENT operationtype (#PCDATA)>
+<!ELEMENT billnumber (#PCDATA)>
+<!ELEMENT orderamount (#PCDATA)>
+<!ELEMENT ordercurrency (#PCDATA)>
+<!ELEMENT slipno (#PCDATA)>
+<!ELEMENT packetdate (#PCDATA)>
+<!ELEMENT signature (#PCDATA)>
+<!ELEMENT pareq (#PCDATA)>
+<!ELEMENT acsurl (#PCDATA)>]>
+<result firstcode="0" secondcode="0" count="1">
+  <orders>
+    <order>
+      <ordernumber>100</ordernumber>
+      <responsecode> AS000 </responsecode>
+      <recommendation> </recommendation>
+      <message> Завершено успешно. </message>
+      <ordercomment> тестовый платеж </ordercomment>
+      <orderdate> 01.01.2011 10:51:53 </orderdate>
+      <amount> 100.00 </amount>
+      <currency> RUB </currency>
+      <meantypename> VISA </meantypename>
+      <meannumber> 411111****1111 </meannumber>
+      <lastname> Testov </lastname>
+      <firstname> Test </firstname>
+      <middlename> Testovich </middlename>
+      <issuebank> BANK </issuebank>
+      <email> test@testpost.ru </email>
+      <bankcountry> Россия </bankcountry>
+      <rate> 1 </rate>
+      <approvalcode> </approvalcode>
+      <meansubtype> Corporate Purchasing Card </meansubtype>
+      <cardholder> TEST </cardholder>
+      <cardexpirationdate> 12/20 </cardexpirationdate>
+      <ipaddress> 10.23.10.23 </ipaddress>
+      <protocoltypename> </protocoltypename>
+      <testmode> 1 </testmode>
+      <customermessage> Завершено успешно. </customermessage>
+      <orderstate>Approved</orderstate>
+      <processingname> Name </processingname>
+      <operationtype> 200 </operationtype>
+      <billnumber>511111100000001.2</billnumber>
+      <orderamount> 100.00 </orderamount>
+      <ordercurrency> RUB </ordercurrency>
+      <slipno> 111111 </slipno>
+      <packetdate> 01.01.2011 10:53:45 </packetdate>
+      <signature> </signature>
+    </order>
+  </orders>
+</result>

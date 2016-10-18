@@ -120,8 +120,7 @@ See "Receiving status by order number" and "OrderState field values" in the docu
 ### Canceling payment
 
 ```ruby
-# `billnumber` - number of payment in Assist
-billnumber = "5775486652369300"
+billnumber = "5775486652369300" # number of payment in Assist
 result = Assist.cancel_order(billnumber)
 
 # with additional parameters
@@ -132,15 +131,37 @@ result = Assist.cancel_order(billnumber, extra_params)
 result.request_params # => {merchant_id: '111111', login: 'login',
                       #     password: 'password', ...}
 
-# response
+# response parameters
 result.result # => {:ordernumber=>"999", :responsecode=>"AS000",
-              #     :recommendation=>nil, :orderdate=>"28.09.2016 23:31:00",
+              #     :orderstate=>"Canceled", :orderdate=>"28.09.2016 23:31:00",
               #     :amount=>"111.00", :currency=>"RUB", :billnumber=>"5775486652369300",
               #     ...
               #    }
 
 # raw http response returned from Assist server (in XML format)
-order_status.original_response # => #<Net::HTTPOK 200 OK readbody=true>
+result.original_response # => #<Net::HTTPOK 200 OK readbody=true>
+```
+
+### Delayed (double-stage) payment
+
+When the double-stage operation mode is used the customer's account is withdrawn
+only after the payment has been confirmed by the merchant. In order to use this mode you need to send the parameter Delay=1 in the authorization request.
+
+```ruby
+# authorization url
+url = Assist.payment_url(order_number, order_amount, delay: 1)
+
+# Confirm order
+billnumber = "5775486652369300" # number of payment in Assist
+extra_params = {}               # additional parameters
+result = Assist.confirm_order(billnumber, extra_params)
+
+# response parameters
+result.result # => {:ordernumber=>"999", :responsecode=>"AS000",
+              #     :orderstate=>"Approved", :orderdate=>"28.09.2016 23:31:00",
+              #     :amount=>"111.00", :currency=>"RUB", :billnumber=>"5775486652369300",
+              #     ...
+              #    }
 ```
 
 ## API Errors

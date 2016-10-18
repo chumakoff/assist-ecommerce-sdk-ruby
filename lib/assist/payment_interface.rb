@@ -12,7 +12,7 @@ module Assist
     PERMITTED_EXTRA_PARAMS = %w(
       OrderCurrency Language OrderComment Lastname Firstname Middlename
       Email Address HomePhone WorkPhone MobilePhone Fax Country State City
-      Zip MobileDevice URL_RETURN URL_RETURN_OK URL_RETURN_NO
+      Zip MobileDevice Delay URL_RETURN URL_RETURN_OK URL_RETURN_NO
       CardPayment YMPayment WMPayment QIWIPayment
       QIWIMtsPayment QIWIMegafonPayment QIWIBeelinePayment QIWITele2Payment
     ).map(&normalize_block).freeze
@@ -50,11 +50,13 @@ module Assist
 
     def default_params
       attrs = {merchant_id: Assist.config.merchant_id}
+
       {
         return_url: :url_return,
         success_url: :url_return_ok,
         fail_url: :url_return_no
-      }.each do |key, value|
+      }
+      .each do |key, value|
         attrs[value] = Assist.config[key] if Assist.config[key]
       end
 

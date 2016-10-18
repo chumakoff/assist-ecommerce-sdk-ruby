@@ -16,6 +16,11 @@ module Assist
         @params = default_params.merge(extra_params)
       end
 
+      def perform
+        response
+        self
+      end
+
       def result
         @result ||= parse_result
       end

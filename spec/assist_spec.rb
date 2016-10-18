@@ -18,6 +18,13 @@ describe Assist do
     end
 
     describe ".order_status" do
+      before do
+        stub_request(:post, /.*orderstate\/orderstate.cfm/).to_return(
+          status: 200,
+          body: File.read(File.join("spec", "fixtures", "order_status_ok.xml"))
+        )
+      end
+
       subject { Assist.order_status(123) }
 
       it "shoud return OrderStatus instance" do
@@ -27,9 +34,20 @@ describe Assist do
       it "shoud contain passed parameter" do
         expect(subject.request_params[:ordernumber].to_s).to eq "123"
       end
+
+      it "should have been performed" do
+        expect(subject.instance_variable_get("@response")).to be
+      end
     end
 
     describe ".cancel_order" do
+      before do
+        stub_request(:post, /.*cancel\/cancel.cfm/).to_return(
+          status: 200,
+          body: File.read(File.join("spec", "fixtures", "cancel_order_ok.xml"))
+        )
+      end
+
       subject { Assist.cancel_order("1234567890") }
 
       it "shoud return CancelOrder instance" do
@@ -39,9 +57,20 @@ describe Assist do
       it "shoud contain passed parameter" do
         expect(subject.request_params[:billnumber].to_s).to eq "1234567890"
       end
+
+      it "should have been performed" do
+        expect(subject.instance_variable_get("@response")).to be
+      end
     end
 
     describe ".confirm_order" do
+      before do
+        stub_request(:post, /.*charge\/charge.cfm/).to_return(
+          status: 200,
+          body: File.read(File.join("spec", "fixtures", "confirm_order_ok.xml"))
+        )
+      end
+
       subject { Assist.confirm_order("1234567890") }
 
       it "shoud return CancelOrder instance" do
@@ -50,6 +79,10 @@ describe Assist do
 
       it "shoud contain passed parameter" do
         expect(subject.request_params[:billnumber].to_s).to eq "1234567890"
+      end
+
+      it "should have been performed" do
+        expect(subject.instance_variable_get("@response")).to be
       end
     end
   end
